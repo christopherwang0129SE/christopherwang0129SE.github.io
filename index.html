@@ -3,82 +3,305 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Christopher Wang</title>
-<meta name="description" content="Christopher Wang — civil engineer in Sweden, building with AI tools and agents.">
+<title>Christopher Wang — Portfolio</title>
+<meta name="description" content="Christopher Wang — civil engineer in Sweden. Hackathon projects and engineering work with AI tools and agents.">
+<meta property="og:title" content="Christopher Wang — Portfolio">
+<meta property="og:description" content="Civil engineer in Sweden. Hackathon projects and engineering work with AI tools and agents.">
+<meta property="og:image" content="https://christopherwang0129se.github.io/assets/sustiqon.jpg">
+<meta property="og:url" content="https://christopherwang0129se.github.io/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
-  :root { --bg:#fbfaf7; --fg:#1c1c1a; --muted:#6b6a65; --line:#e4e2dc; --accent:#1f5f8b; }
-  @media (prefers-color-scheme: dark) {
-    :root { --bg:#141413; --fg:#ecebe6; --muted:#9a9890; --line:#2c2b28; --accent:#7fb6dc; }
+  :root {
+    --bg: #fbfaf7; --surface: #ffffff; --fg: #1a1a18; --muted: #6b6a64; --faint: #9b9990;
+    --line: #e6e3dc; --accent: #1f5f8b; --accent-soft: #e5eff6; --tag: #f1efe9;
+    --win: #8a5a00; --win-soft: #fbf0d9;
   }
-  * { box-sizing:border-box; }
-  body { margin:0; background:var(--bg); color:var(--fg);
-         font:17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif; }
-  main { max-width:680px; margin:0 auto; padding:72px 16px 96px; }
-  h1 { font-size:2rem; margin:0 0 4px; letter-spacing:-0.02em; }
-  .sub { color:var(--muted); margin:0 0 24px; }
-  .links a { margin-right:18px; }
-  a { color:var(--accent); text-decoration:none; }
-  a:hover { text-decoration:underline; }
-  h2 { font-size:0.8rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted);
-       margin:56px 0 12px; font-weight:600; }
-  ul.projects { list-style:none; padding:0; margin:0; }
-  ul.projects li { padding:16px 0; border-top:1px solid var(--line); }
-  ul.projects li:last-child { border-bottom:1px solid var(--line); }
-  .p-title { font-weight:600; }
-  .p-desc { color:var(--muted); margin:2px 0 0; }
-  .p-links { font-size:0.9rem; margin-top:4px; }
-  .p-links a { margin-right:14px; }
-  footer { margin-top:64px; color:var(--muted); font-size:0.85rem; }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #121211; --surface: #1a1a19; --fg: #ecebe6; --muted: #a09e96; --faint: #74726b;
+      --line: #2b2a27; --accent: #84bbe0; --accent-soft: #1b2a35; --tag: #24231f;
+      --win: #e9b95a; --win-soft: #2e2615;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--fg);
+         font: 16px/1.6 Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+         -webkit-font-smoothing: antialiased; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+
+  /* Header */
+  header { padding: 88px 0 48px; }
+  .eyebrow { font: 500 0.8rem "JetBrains Mono", monospace; color: var(--muted); letter-spacing: 0.02em; margin: 0 0 16px; }
+  h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1.1; letter-spacing: -0.03em; margin: 0 0 20px; font-weight: 700; }
+  .lede { font-size: 1.15rem; color: var(--muted); max-width: 620px; margin: 0 0 28px; }
+  .lede strong { color: var(--fg); font-weight: 600; }
+  .contact { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px;
+         border: 1px solid var(--line); background: var(--surface); color: var(--fg); font-weight: 500; font-size: 0.92rem; }
+  .btn:hover { text-decoration: none; border-color: var(--accent); color: var(--accent); }
+  .btn.primary { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+  .btn.primary:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .btn svg { width: 16px; height: 16px; fill: currentColor; }
+
+  /* Stats */
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(150px, 45%), 1fr)); gap: 1px;
+           background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; margin: 8px 0 72px; }
+  .stat { background: var(--surface); padding: 18px 20px; }
+  .stat b { display: block; font-size: 1.6rem; letter-spacing: -0.02em; }
+  .stat span { color: var(--muted); font-size: 0.85rem; }
+
+  /* Section */
+  .sec-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 24px; }
+  h2 { font-size: 1.5rem; letter-spacing: -0.02em; margin: 0; }
+  .filters { display: flex; flex-wrap: wrap; gap: 6px; }
+  .filters button { font: inherit; font-size: 0.85rem; padding: 6px 14px; border-radius: 999px; cursor: pointer;
+                    border: 1px solid var(--line); background: transparent; color: var(--muted); }
+  .filters button[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+
+  /* Cards */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr)); gap: 20px; }
+  .card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line);
+          border-radius: 14px; overflow: hidden; transition: border-color .15s, transform .15s; }
+  .card:hover { border-color: var(--faint); transform: translateY(-2px); }
+  .card[hidden] { display: none; }
+  .media { aspect-ratio: 16 / 9; background: var(--tag); border-bottom: 1px solid var(--line); overflow: hidden; }
+  .media img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+  .media.ph { display: flex; align-items: center; justify-content: center; padding: 20px; text-align: center;
+              font: 500 0.95rem "JetBrains Mono", monospace; color: var(--muted);
+              background: repeating-linear-gradient(135deg, var(--tag) 0 12px, var(--surface) 12px 24px); }
+  .media.ph span { background: var(--surface); padding: 6px 12px; border-radius: 8px; border: 1px solid var(--line); }
+  .body { padding: 18px 20px 20px; display: flex; flex-direction: column; flex: 1; }
+  .meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; font-size: 0.8rem; color: var(--muted); margin-bottom: 8px; }
+  .meta time { font-family: "JetBrains Mono", monospace; font-weight: 500; }
+  .event { padding: 2px 8px; border-radius: 6px; background: var(--accent-soft); color: var(--accent); font-weight: 500; }
+  h3 { font-size: 1.12rem; letter-spacing: -0.01em; margin: 0 0 8px; line-height: 1.3; }
+  .body p { margin: 0 0 12px; color: var(--muted); font-size: 0.93rem; }
+  .result { display: flex; gap: 8px; align-items: flex-start; font-size: 0.88rem; color: var(--win);
+            background: var(--win-soft); padding: 8px 12px; border-radius: 8px; margin: 0 0 12px; }
+  .stack { display: flex; flex-wrap: wrap; gap: 6px; margin: auto 0 14px; padding-top: 4px; }
+  .stack span { font-size: 0.75rem; padding: 2px 8px; border-radius: 6px; background: var(--tag); color: var(--muted); }
+  .links { display: flex; flex-wrap: wrap; gap: 14px; font-size: 0.9rem; font-weight: 500; }
+  .links a::after { content: " ↗"; font-size: 0.8em; }
+
+  footer { margin: 96px 0 0; padding: 32px 0 48px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.88rem;
+           display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+  @media (max-width: 400px) { .grid { grid-template-columns: 1fr; } header { padding-top: 56px; } }
 </style>
 </head>
 <body>
-<main>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Civil engineer · Sweden</p>
   <h1>Christopher Wang</h1>
-  <p class="sub">Civil engineer · Sweden · Building with AI tools and agents</p>
-  <p>I'm a civil engineer who likes to build. Most of what I make sits where engineering meets software:
-     simulation, sustainability data, and small tools that use AI agents to take the busywork out of everyday tasks.</p>
-  <p class="links">
-    <a href="https://github.com/christopherwang0129SE">GitHub</a>
-    <a href="https://www.linkedin.com/in/christopher-w-96946576">LinkedIn</a>
-    <a href="mailto:chrisw0129@gmail.com">Email</a>
-  </p>
+  <p class="lede">I'm a civil engineer who builds software at hackathons. My projects mix
+    <strong>engineering</strong>, <strong>sustainability</strong> and <strong>AI agents</strong>:
+    digital twins, emissions dashboards, drug-data tools and competitive bots, built quickly with small teams.</p>
+  <div class="contact">
+    <a class="btn primary" href="#projects">View projects</a>
+    <a class="btn" href="https://www.linkedin.com/in/christopherwangse">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+      LinkedIn</a>
+    <a class="btn" href="https://github.com/christopherwang0129SE">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.6.2 2.8.1 3.2.8.8 1.3 1.9 1.3 3.1 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+      GitHub</a>
+    <a class="btn" href="mailto:chrisw0129@gmail.com">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h20a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1zm10 8.2L3.6 6.5h16.8L12 12.2zM3 8.3V18h18V8.3l-9 6.1-9-6.1z"/></svg>
+      Email</a>
+  </div>
+</header>
 
-  <h2>Selected projects</h2>
-  <ul class="projects">
-    <li>
-      <div class="p-title">MergeGuard</div>
-      <p class="p-desc">Agent-based system that minimises merge conflicts. Nebius &amp; Tavily Hackathon 2026.</p>
-      <div class="p-links"><a href="https://github.com/christopherwang0129SE/mergeguard">Code</a></div>
-    </li>
-    <li>
-      <div class="p-title">Sustiqon OS</div>
-      <p class="p-desc">Sustainability-monitoring dashboard for a joinery workshop. React + TypeScript, built at Hållbarhetskväll.</p>
-      <div class="p-links">
-        <a href="https://christopherwang0129se.github.io/hallbarhetskvall-Sustiqon-OS/">Live demo</a>
-        <a href="https://github.com/christopherwang0129SE/hallbarhetskvall-Sustiqon-OS">Code</a>
-      </div>
-    </li>
-    <li>
-      <div class="p-title">Instant Invoice</div>
-      <p class="p-desc">Free, open-source invoice generator that runs entirely in the browser. No backend, no login.</p>
-      <div class="p-links">
-        <a href="https://christopherwang0129se.github.io/instant-invoice/">Live demo</a>
-        <a href="https://github.com/christopherwang0129SE/instant-invoice">Code</a>
-      </div>
-    </li>
-    <li>
-      <div class="p-title">GT car spoiler aerodynamics (CFD)</div>
-      <p class="p-desc">CFD case study of airflow around a GT car spoiler, simulated in SimScale.</p>
-      <div class="p-links"><a href="https://github.com/christopherwang0129SE/cfd-gt-car-spoiler-aerodynamics">Code &amp; results</a></div>
-    </li>
-    <li>
-      <div class="p-title">Summer ozone pollution in Xiamen</div>
-      <p class="p-desc">Lingfeng Summer Research Program 2023, Xiamen University: characteristics and formation mechanisms of summer ozone.</p>
-      <div class="p-links"><a href="https://github.com/christopherwang0129SE/Summer-Research-Project-Lingfeng-2023">Project</a></div>
-    </li>
-  </ul>
+<section class="stats" aria-label="Highlights">
+  <div class="stat"><b>8</b><span>hackathons in 2026</span></div>
+  <div class="stat"><b>Top 8</b><span>of 20+ teams at Zero to Demo</span></div>
+  <div class="stat"><b>#40</b><span>final ladder rank, Florent Code League</span></div>
+  <div class="stat"><b>12</b><span>projects</span></div>
+</section>
 
-  <footer>© 2026 Christopher Wang</footer>
-</main>
+<section id="projects">
+  <div class="sec-head">
+    <h2>Projects</h2>
+    <div class="filters" role="group" aria-label="Filter projects">
+      <button type="button" data-f="all" aria-pressed="true">All</button>
+      <button type="button" data-f="hackathon" aria-pressed="false">Hackathons</button>
+      <button type="button" data-f="engineering" aria-pressed="false">Engineering &amp; research</button>
+      <button type="button" data-f="learning" aria-pressed="false">Courses &amp; schools</button>
+    </div>
+  </div>
+
+  <div class="grid">
+
+    <!-- Newest first. To add media later: replace the .media.ph div with <div class="media"><img src="assets/NAME.jpg" alt="..."></div> -->
+
+    <article class="card" data-cat="hackathon">
+      <div class="media ph"><span>MergeGuard</span></div>
+      <div class="body">
+        <div class="meta"><time datetime="2026-09">Sep 2026</time><span class="event">Nebius &amp; Tavily Hackathon</span></div>
+        <h3>MergeGuard</h3>
+        <p>A system of agents that keeps parallel work, by people or by AI coding agents, from colliding. <em>Sentinel</em> scores the
+           conflict risk between in-flight branches. <em>Planner</em> splits work into non-overlapping zones. <em>Merger</em> resolves conflicts
+           semantically, checking current library docs as it goes.</p>
+        <div class="stack"><span>Python</span><span>FastAPI</span><span>Nebius Token Factory</span><span>Tavily</span></div>
+        <div class="links"><a href="https://github.com/christopherwang0129SE/mergeguard">Code</a></div>
+      </div>
+    </article>
+
+    <article class="card" data-cat="hackathon">
+      <div class="media ph"><span>Florent Code League</span></div>
+      <div class="body">
+        <div class="meta"><time datetime="2026-08">Aug 2026</time><span class="event">Florent Code League</span></div>
+        <h3>FCL competitive strategy bot</h3>
+        <p>We shipped ten versioned bot submissions and benchmarked each one against the live ladder version rather than an outdated
+           internal baseline, which made our performance measurements reliable. I designed the final <em>scouter2</em> bot, the base
+           of our <em>conveyor-ecocap5 v10</em> submission. I also built read-only tooling to pull our real ladder record and break it down by map.
+           That showed us two map rotations we kept losing, and we fixed both.</p>
+        <div class="result">▲ Climbed from 1525 (#46) to 1585 (#40) in the final stretch</div>
+        <div class="stack"><span>Python</span><span>fcode</span></div>
+        <div class="links"><a href="https://github.com/christopherwang0129SE/fcl-bot">Code</a><a href="https://code.florent.vc/">Competition</a></div>
+      </div>
+    </article>
+
+    <article class="card" data-cat="hackathon">
+      <div class="media ph"><span>Drug 360</span></div>
+      <div class="body">
+        <div class="meta"><time datetime="2026-07">Jul 2026</time><span class="event">Hackathon</span></div>
+        <h3>Drug 360: unified drug intelligence</h3>
+        <p>Type in a drug name and get a single card with its literature, clinical trials and FDA/EMA regulatory status.
+           These normally sit in separate databases. Papers are ranked by citations and show their abstracts inline. Built on the Amass API.</p>
+        <div class="stack"><span>Python</span><span>JavaScript</span><span>Amass API</span></div>
+        <div class="links"><a href="https://github.com/christopherwang0129SE/drug360">Code</a></div>
+      </div>
+    </article>
+
+    <article class="card" data-cat="hackathon">
+      <div class="media"><img src="assets/fridson.jpg" alt="Fridson digital-twin floor plan with sensor hotspots" loading="lazy"></div>
+      <div class="body">
+        <div class="meta"><time datetime="2026-07">Jul 2026</time><span class="event">Zero to Demo · Copenhagen</span></div>
+        <h3>Fridson: AI property monitoring</h3>
+        <p>A predictive-maintenance dashboard for apartments and offices. It pairs a digital twin of the building (occupancy, sensor data,
+           maintenance status) with AI-guided action plans for emergencies. The demo covered two real scenarios: a resident locked out,
+           and a leaking roof. Built by a team of four in 36 hours.</p>
+        <div class="result">★ Top 8 of 20+ teams on the pitch for our AI-native product</div>
+        <div class="stack"><span>TypeScript</span><span>React</span><span>Lovable</span></div>
+        <div class="links"><a href="https://github.com/christopherwang0129SE/fridson-ai-hubv1">Code</a></div>
+      </div>
+    </article>
+
+    <article class="card" data-cat="engineering">
+      <div class="media"><img src="assets/pantrap.jpg" alt="Map of field routes for two teams around Lund" loading="lazy"></div>
+      <div class="body">
+        <div class="meta"><time datetime="2026-07">Jul 2026</time><span class="event">Field research</span></div>
+        <h3>Pantrap field routes</h3>
+        <p>A route planner for a biodiversity field campaign around Lund, covering 16 ponds over three days with two teams. Stops are ordered by
+           real road distance using nearest-neighbour plus 2-opt routing. Work is split into balanced territories, and each team gets a printable checklist.</p>
+        <div class="stack"><span>HTML/JS</span><span>Leaflet</span><span>Routing</span></div>
+        <div class="links"><a href="https://christopherwang0129se.github.io/pantrap-routes/">Live</a><a href="https://github.com/christopherwang0129SE/pantrap-routes">Code</a></div>
+      </div>
+    </article>
+
+    <article class="card" data-cat="learning">
+      <div class="media ph"><span>CyberBridge 2026</span></div>
+      <div class="body">
+        <div class="meta"><time datetime="2026-08">Aug 2026</time><span class="event">AAU Copenhagen</span></div>
+        <h3>CyberBridge Summer School: OT/ICS security</h3>
+        <p>Two weeks of operational-technology and industrial-control-system cybersecurity, ending with a threat-intelligence exercise.
+           My notes and the exercise vault are public.</p>
+        <div class="stack"><span>OT/ICS</span><span>Threat intelligence</span><span>Obsidian</span></div>
+        <div class="links"><a href="https://github.com/christopherwang0129SE/cyberbridge-summer-school-2026">Notes</a><a href="https://github.com/christopherwang0129SE/cyberbridge-summerschool2026">Exercise vault</a></div>
+      </div>
+    </article>
+
+    <article class="card" data-cat="hackathon">
+      <div class="media"><img src="assets/officemonkey.jpg" alt="Three wooden OfficeMonkey figures" loading="lazy"></div>
+      <div class="body">
+        <div class="meta"><time datetime="2026-05">May 2026</time><span class="event">The Boring Hackathon · Copenhagen</span></div>
+        <h3>The Boring Monkey (OfficeMonkey)</h3>
+        <p>A 3D-printed desk monkey that listens to the office and reacts when it gets too loud, so nobody has to be the one who shushes everyone.
+           Inside is an ESP32 with a MEMS microphone that measures the noise level and triggers visual cues for occupants and facility managers.</p>
+        <div class="stack"><span>ESP32</span><span>OpenSCAD</span><span>3D printing</span><span>Lovable</span></div>
+        <div class="links"><a href="https://www.officemonkey.dk/">Website</a><a href="https://officemonkey.lovable.app">App</a><a href="https://github.com/christopherwang0129SE/officemonkey">Code</a></div>
+      </div>
+    </article>
+
+    <article class="card" data-cat="hackathon">
+      <div class="media"><img src="assets/invoice.jpg" alt="Instant Invoice editor" loading="lazy"></div>
+      <div class="body">
+        <div class="meta"><time datetime="2026">2026</time><span class="event">Cursor AI Build Battle</span></div>
+        <h3>Instant Invoice</h3>
+        <p>An open-source invoice generator that runs entirely in the browser, with no backend and no login. It supports VAT, discounts, multiple currencies and Nordic OCR
+           payment references, and exports to PDF, HTML or JSON. Built at the first Cursor Build Battle.</p>
+        <div class="stack"><span>HTML</span><span>JavaScript</span><span>Cursor</span></div>
+        <div class="links"><a href="https://christopherwang0129se.github.io/instant-invoice/">Live</a><a href="https://github.com/christopherwang0129SE/instant-invoice">Code</a></div>
+      </div>
+    </article>
+
+    <article class="card" data-cat="hackathon">
+      <div class="media"><img src="assets/sustiqon.jpg" alt="Sustiqon OS sustainability dashboard" loading="lazy"></div>
+      <div class="body">
+        <div class="meta"><time datetime="2026">2026</time><span class="event">Hållbarhetskväll</span></div>
+        <h3>Sustiqon OS: sustainability through operator-centred design</h3>
+        <p>An operating-system-style platform for a joinery workshop. It shows real-time and historical emissions data and turns the numbers into actions.
+           Gamified goals, feedback loops and nudges keep employees engaged and help bring emissions down.</p>
+        <div class="stack"><span>React</span><span>TypeScript</span><span>Tailwind</span><span>Recharts</span></div>
+        <div class="links"><a href="https://christopherwang0129se.github.io/hallbarhetskvall-Sustiqon-OS/">Live</a><a href="https://github.com/christopherwang0129SE/hallbarhetskvall-Sustiqon-OS">Code</a></div>
+      </div>
+    </article>
+
+    <article class="card" data-cat="hackathon">
+      <div class="media ph"><span>Canvas module</span></div>
+      <div class="body">
+        <div class="meta"><time datetime="2026">2026</time><span class="event">Hackathon</span></div>
+        <h3>Centralised Canvas module with integrated chatbot</h3>
+        <p>A single Canvas module to stop course information from being scattered across pages. We reorganised the existing resources so they're easier to find,
+           prototyped a user-centred interface, and designed a chatbot for in-context help and navigation. It also works as a reusable template for course administrators.</p>
+        <div class="stack"><span>UX</span><span>Prototyping</span><span>Chatbot</span></div>
+      </div>
+    </article>
+
+    <article class="card" data-cat="learning">
+      <div class="media"><img src="assets/cfd-spoiler.jpg" alt="CFD streamlines over a GT car spoiler" loading="lazy"></div>
+      <div class="body">
+        <div class="meta"><time datetime="2026">2026</time><span class="event">Coursera CFD</span></div>
+        <h3>Airflow around a GT car spoiler</h3>
+        <p>A CFD study of airflow over a GT race car's rear wing: incompressible RANS with k–ω SST turbulence. The streamlines show the flow speeding up
+           over the wing and separating at the trailing edge, which is the pressure difference that creates downforce.</p>
+        <div class="stack"><span>SimScale</span><span>CFD</span><span>RANS k–ω SST</span></div>
+        <div class="links"><a href="https://github.com/christopherwang0129SE/cfd-gt-car-spoiler-aerodynamics">Results</a><a href="https://www.simscale.com/workbench/?pid=1372093669226770934">Interactive model</a></div>
+      </div>
+    </article>
+
+    <article class="card" data-cat="engineering">
+      <div class="media ph"><span>Xiamen · O₃</span></div>
+      <div class="body">
+        <div class="meta"><time datetime="2023">2023</time><span class="event">Xiamen University</span></div>
+        <h3>Summer ozone pollution in Xiamen</h3>
+        <p>Research for the Lingfeng Summer Research Program on what drives summer ozone pollution in Xiamen and how it forms.</p>
+        <div class="stack"><span>Atmospheric science</span><span>Data analysis</span></div>
+        <div class="links"><a href="https://github.com/christopherwang0129SE/Summer-Research-Project-Lingfeng-2023">Project</a></div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Christopher Wang</span>
+  <span><a href="https://www.linkedin.com/in/christopherwangse">LinkedIn</a> · <a href="https://github.com/christopherwang0129SE">GitHub</a> · <a href="mailto:chrisw0129@gmail.com">chrisw0129@gmail.com</a></span>
+</footer>
+
+</div>
+<script>
+  const btns = document.querySelectorAll('.filters button');
+  const cards = document.querySelectorAll('.card');
+  btns.forEach(b => b.addEventListener('click', () => {
+    btns.forEach(x => x.setAttribute('aria-pressed', x === b));
+    cards.forEach(c => c.hidden = b.dataset.f !== 'all' && c.dataset.cat !== b.dataset.f);
+  }));
+</script>
 </body>
 </html>
