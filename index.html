@@ -127,7 +127,20 @@
 
   <div class="grid">
 
-    <!-- Newest first. To add media later: replace the .media.ph div with <div class="media"><img src="assets/NAME.jpg" alt="..."></div> -->
+    <article class="card" data-cat="hackathon">
+      <div class="media"><img src="assets/prshik.jpg" alt="PRshik demo video" loading="lazy"></div>
+      <div class="body">
+        <div class="meta"><time datetime="2026-10">Sep–Oct 2026</time><span class="event">Nebius × NVIDIA Global AI Hackathon</span></div>
+        <h3>PRshik: catch PRs that break main together</h3>
+        <p>Two pull requests can each pass their tests and merge cleanly, yet break the code together. PRshik compares every pair of
+           in-flight branches, flags the risky pairs, and proves a conflict by running tests on the merged code. NVIDIA Nemotron explains
+           the risk and writes extra tests, but a conflict only counts when a test actually fails. I started the project, built the GitHub
+           pull-request review queue and the <em>Planner</em> agent, which suggests a safe merge order, and wrote our submission.</p>
+        <div class="result">✓ Confirmed 4 real conflicts from public GitHub projects, each in 3 of 3 runs</div>
+        <div class="stack"><span>Python</span><span>FastAPI</span><span>React</span><span>NVIDIA Nemotron</span><span>Nebius Token Factory</span><span>Tavily</span><span>MCP</span></div>
+        <div class="links"><a href="https://www.youtube.com/watch?v=NsdlcErTttc">Demo video</a><a href="https://github.com/christopherwang0129SE/PRshik">Code</a></div>
+      </div>
+    </article><!-- Newest first. To add media later: replace the .media.ph div with <div class="media"><img src="assets/NAME.jpg" alt="..."></div> -->
 
     <article class="card" data-cat="engineering">
       <div class="media ph"><span>Nordvakt</span></div>
